@@ -1,49 +1,35 @@
-Aplicativo de Filtro de Contatos
+📱 Aplicativo de Filtro de Contatos
 Um aplicativo mobile em React Native que busca e filtra seus contatos com base no número mínimo de telefones que cada contato possui.
-Funcionalidades
+✨ Funcionalidades
 
-Busca contatos do dispositivo (requer permissão)
-Filtra contatos com base no número mínimo de telefones
-Slider interativo para ajustar o critério de filtragem
-Interface com tema escuro, limpa e com cartões de contato fáceis de ler
+📞 Busca contatos do dispositivo (requer permissão)
+🔍 Filtra contatos com base no número mínimo de telefones
+🎚️ Slider interativo para ajustar o critério de filtragem
+🌙 Interface com tema escuro, limpa e com cartões de contato fáceis de ler
 
+🛠️ Tecnologias Utilizadas
 
-Tecnologias Utilizadas
+React Native - Framework para desenvolvimento mobile
+Expo - Plataforma para desenvolvimento React Native
+expo-contacts - Para gerenciamento de contatos
+@react-native-community/slider - Para o componente de slider
 
-React Native
-Expo
-expo-contacts para gerenciamento de contatos
-@react-native-community/slider para o componente de slider
-
-Instalação
-
-Clone o repositório:
-
+📥 Instalação
+1. Clone o repositório:
 bashgit clone https://github.com/seuusuario/filtro-contatos.git
 cd filtro-contatos
-
-Instale as dependências:
-
-npm install
+2. Instale as dependências:
+bashnpm install
 # ou
 yarn install
-
-Inicie o servidor de desenvolvimento:
-
-npx expo start
-
-Permissões Necessárias
+3. Inicie o servidor de desenvolvimento:
+bashnpx expo start
+🔐 Permissões Necessárias
 Este aplicativo requer permissão para acessar os contatos do seu dispositivo. O aplicativo solicitará esta permissão quando for iniciado pela primeira vez.
-Dependências
-
-react
-react-native
-expo
-expo-contacts
-@react-native-community/slider
-
-Como Funciona
-O aplicativo:
+📚 Dependências
+PacoteFunçãoreactBase do frameworkreact-nativeFramework mobileexpoFerramentas e serviçosexpo-contactsAcesso aos contatos@react-native-community/sliderComponente de slider
+⚙️ Como Funciona
+O aplicativo segue este fluxo:
 
 Solicita permissão para acessar seus contatos
 Carrega contatos com seus números de telefone
