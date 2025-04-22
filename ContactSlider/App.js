@@ -8,25 +8,31 @@ export default function App() {
   const [filteredContacts, setFilteredContacts] = useState([]);
   const [minNumbers, setMinNumbers] = useState(1);
 
-  // Carrega os contatos
   useEffect(() => {
     (async () => {
-      // 1. requestPermissionsAsync() - Solicita permissão para acessar contatos
       const { status } = await Contacts.requestPermissionsAsync();
-      
+
       if (status === "granted") {
-        // 2. getContactsAsync() - Obtém a lista de contatos
         const { data } = await Contacts.getContactsAsync({
-          // 3. Fields.PhoneNumbers - Especifica que queremos os números de telefone
           fields: [Contacts.Fields.PhoneNumbers],
         });
-        setContacts(data);
-        setFilteredContacts(data);
+
+        // Ordena os contatos em ordem alfabética pelo nome
+        const sortedData = data.sort((a, b) => {
+          if (a.name && b.name) {
+            return a.name.localeCompare(b.name);
+          }
+          return 0;
+        });
+
+        setContacts(sortedData);
+        setFilteredContacts(sortedData);
+      } else {
+        alert("Permissão para acessar os contatos foi negada.");
       }
     })();
   }, []);
 
-  //Filtrando contatos baseado no número mínimo de telefones
   useEffect(() => {
     const filtered = contacts.filter(
       (contact) =>
@@ -41,7 +47,7 @@ export default function App() {
       <View style={styles.content}>
         <Text style={styles.title}>Filtrar Contatos</Text>
         <Text style={styles.subtitle}>Mínimo de números: {minNumbers}</Text>
-        
+
         <Slider
           style={styles.slider}
           minimumValue={1}
@@ -53,7 +59,7 @@ export default function App() {
           maximumTrackTintColor="#3a3a3a"
           thumbTintColor="#6e48aa"
         />
-        
+
         <FlatList
           data={filteredContacts}
           keyExtractor={(item) => item.id || Math.random().toString()}
